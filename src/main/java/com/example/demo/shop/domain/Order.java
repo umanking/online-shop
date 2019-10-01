@@ -23,7 +23,7 @@ public class Order {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "DELIVERY_ID")
-    private Delievery delievery;
+    private Delivery delivery;
 
     private LocalDateTime orderDate;
 
