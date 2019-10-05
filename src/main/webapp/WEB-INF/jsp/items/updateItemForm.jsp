@@ -12,15 +12,17 @@
 </head>
 <body>
 <div>
-    <form action="/items/new" method="post">
+    <form role="form" method="post">
+        <input type="hidden" name="id" value="${item.id}">
+
         <label>상품명</label>
-        <input type="text" name="name" placeholder="이름을 입력하세요">
+        <input type="text" name="name" placeholder="이름을 입력하세요" value="${item.name}">
 
         <label>가격</label>
-        <input type="number" name="price" placeholder="가격을 입력하세요">
+        <input type="number" name="price" placeholder="가격을 입력하세요" value="${item.price}">
 
         <label>수량</label>
-        <input type="number" name="stockQuantity" placeholder="수량을 입력하세요">
+        <input type="number" name="stockQuantity" placeholder="수량을 입력하세요" value="${item.stockQuantity}">
 
         <input type="submit" value="Submit"/>
     </form>

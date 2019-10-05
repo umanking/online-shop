@@ -24,7 +24,7 @@
                 <td>${item.price}</td>
                 <td>${item.stockQuantity}</td>
                 <td>
-                    <a href="/itmes/${item.id}/edit"
+                    <a href="/items/${item.id}/edit"
                        class="btn btn-primary" role="button"
                     >수정</a>
                 </td>
