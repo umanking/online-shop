@@ -21,4 +21,12 @@ public class Delivery extends Item {
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
+
+
+    public Delivery() {
+    }
+
+    public Delivery(Address address) {
+        this.address = address;
+    }
 }
