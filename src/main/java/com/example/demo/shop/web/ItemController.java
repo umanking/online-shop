@@ -23,11 +23,6 @@ public class ItemController {
     @Autowired
     ItemService itemService;
 
-    @GetMapping("/")
-    public String hello() {
-        return "hello";
-    }
-
     @GetMapping("/items/new")
     public String createForm() {
         return "items/createItemForm";
