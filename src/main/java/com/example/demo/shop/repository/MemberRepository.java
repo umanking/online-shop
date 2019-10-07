@@ -1,6 +1,7 @@
 package com.example.demo.shop.repository;
 
 import com.example.demo.shop.domain.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -12,9 +13,9 @@ import java.util.List;
  * @since 2019-10-05
  */
 @Repository
-public class MemberRepository {
+public interface MemberRepository extends JpaRepository<Member, Long> {
 
-    @PersistenceContext
+    /*@PersistenceContext
     EntityManager em;
 
     public void save(Member member) {
@@ -33,5 +34,7 @@ public class MemberRepository {
         return em.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name", name)
                 .getResultList();
-    }
+    }*/
+
+    List<Member> findByName(String name);
 }
