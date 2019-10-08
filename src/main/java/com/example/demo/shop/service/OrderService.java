@@ -30,7 +30,7 @@ public class OrderService {
     public Long order(Long memberId, Long itemId, int count) {
         //엔티티 조회
         Optional<Member> member = memberRepository.findById(memberId);
-        Item item = itemService.findOne(itemId);
+        Item item = itemService.findById(itemId);
 
         // 배송정보 생성, 주문 상품 생성
         Delivery delivery = new Delivery(member.get().getAddress());

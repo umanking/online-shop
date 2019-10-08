@@ -1,6 +1,7 @@
 package com.example.demo.shop.repository;
 
 import com.example.demo.shop.domain.Item;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -12,9 +13,9 @@ import java.util.List;
  * @since 2019-10-05
  */
 @Repository
-public class ItemRepository {
+public interface ItemRepository extends JpaRepository<Item, Long> {
 
-    @PersistenceContext
+    /*@PersistenceContext
     EntityManager em;
 
     public void save(Item item) {
@@ -23,14 +24,14 @@ public class ItemRepository {
         } else {
             em.merge(item);
         }
-    }
+    }*/
 
-    public Item findOne(Long id) {
+    /*public Item findOne(Long id) {
         return em.find(Item.class, id);
     }
 
     public List<Item> findAll() {
         return em.createQuery("select i from Item i", Item.class)
                 .getResultList();
-    }
+    }*/
 }

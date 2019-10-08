@@ -44,7 +44,7 @@ public class ItemController {
     // 상품 수정 폼
     @GetMapping("/items/{itemId}/edit")
     public String updateItemForm(@PathVariable(value = "itemId") Long itemId, Model model) {
-        Item item = itemService.findOne(itemId);
+        Item item = itemService.findById(itemId);
         model.addAttribute("item", item);
         return "items/updateItemForm";
     }
