@@ -3,6 +3,8 @@ package com.example.demo.shop.repository;
 import com.example.demo.shop.domain.Member;
 import com.example.demo.shop.domain.Order;
 import com.example.demo.shop.domain.OrderSearch;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -18,20 +20,21 @@ import java.util.List;
  * @since 2019-10-05
  */
 @Repository
-public class OrderRepository {
+public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    @PersistenceContext
+    /*@PersistenceContext
     EntityManager em;
 
     public void save(Order order) {
         em.persist(order);
-    }
+    }*/
 
-    public Order findOne(Long id) {
+    /*public Order findOne(Long id) {
         return em.find(Order.class, id);
-    }
+    }*/
 
-    public List<Order> findAll(OrderSearch orderSearch) {
+
+    /*public List<Order> findAll(OrderSearch orderSearch) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Order> cq = cb.createQuery(Order.class);
         Root<Order> o = cq.from(Order.class);
@@ -56,6 +59,8 @@ public class OrderRepository {
         cq.where(cb.and(criteria.toArray(new Predicate[criteria.size()])));
         TypedQuery<Order> query = em.createQuery(cq).setMaxResults(1000);
         return query.getResultList();
-    }
+    }*/
 
+    @Query("select o from Order o ")
+    List<Order> findAll(OrderSearch orderSearch);
 }
